@@ -1,0 +1,13 @@
+{
+  "name": "y",
+  "version": "1.0.0",
+  "description": "\"Test Project for Newmen and jenkins",
+  "scripts": {
+	"api-test-production": "newman run tests/Client_login.postman_collection.json"
+  },
+
+  "author": "Neeraj",
+  "dependencies": {
+    "newman": "^3.9.4"
+  }
+}

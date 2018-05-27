@@ -1,0 +1,1264 @@
+{
+	"info": {
+		"_postman_id": "72e1429b-bbf8-4e79-86e9-fd0f50743a8c",
+		"name": "Client_login",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "New plans",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "13ad74b2-af1c-40de-ae15-74a784e759f6",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"pm.environment.set(\"client_access_token\",postman.getResponseHeader(\"access-token\"));",
+							"pm.environment.set(\"client\",postman.getResponseHeader(\"client\"));",
+							"pm.environment.set(\"uid\",postman.getResponseHeader(\"uid\"));",
+							"tests[\"Uid is set\"] = postman.getResponseHeader(\"uid\") == pm.environment.get(\"uid\")",
+							"",
+							"console.log(pm.response.json());",
+							"",
+							"pm.sendRequest(\"https://postman-echo.com/get\", function (err, response) {",
+							"    console.log(response.json());",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Access-Token",
+						"value": "{{client_access_token}}"
+					},
+					{
+						"key": "Client",
+						"value": "{{client}}"
+					},
+					{
+						"key": "Token-Type",
+						"value": "Bearer"
+					},
+					{
+						"key": "Uid",
+						"value": "{{uid}}"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "http://52.74.66.238:3000/api/v7/plans",
+					"protocol": "http",
+					"host": [
+						"52",
+						"74",
+						"66",
+						"238"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v7",
+						"plans"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Store client diet prefer",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "38b2e19b-361d-40db-ba89-8e604ca3f053",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"pm.environment.set(\"client_access_token\",postman.getResponseHeader(\"access-token\"));",
+							"pm.environment.set(\"client\",postman.getResponseHeader(\"client\"));",
+							"pm.environment.set(\"uid\",postman.getResponseHeader(\"uid\"));",
+							"tests[\"Uid is set\"] = postman.getResponseHeader(\"uid\") == pm.environment.get(\"uid\")",
+							"",
+							"console.log(pm.response.json());",
+							"",
+							"pm.sendRequest(\"https://postman-echo.com/get\", function (err, response) {",
+							"    console.log(response.json());",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Access-Token",
+						"value": "{{client_access_token}}"
+					},
+					{
+						"key": "Client",
+						"value": "{{client}}"
+					},
+					{
+						"key": "Token-Type",
+						"value": "Bearer"
+					},
+					{
+						"key": "Uid",
+						"value": "{{uid}}"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "diet_prefer",
+							"type": "text",
+							"value": "veg"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://52.74.66.238:3000/api/v1/clients/profile/diet_prefer",
+					"protocol": "http",
+					"host": [
+						"52",
+						"74",
+						"66",
+						"238"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"clients",
+						"profile",
+						"diet_prefer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Store client gender",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "18e03dd1-edbd-4ee1-bfa1-299232d27472",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"pm.environment.set(\"client_access_token\",postman.getResponseHeader(\"access-token\"));",
+							"pm.environment.set(\"client\",postman.getResponseHeader(\"client\"));",
+							"pm.environment.set(\"uid\",postman.getResponseHeader(\"uid\"));",
+							"tests[\"Uid is set\"] = postman.getResponseHeader(\"uid\") == pm.environment.get(\"uid\")",
+							"",
+							"console.log(pm.response.json());",
+							"",
+							"pm.sendRequest(\"https://postman-echo.com/get\", function (err, response) {",
+							"    console.log(response.json());",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Access-Token",
+						"value": "{{client_access_token}}"
+					},
+					{
+						"key": "Client",
+						"value": "{{client}}"
+					},
+					{
+						"key": "Token-Type",
+						"value": "Bearer"
+					},
+					{
+						"key": "Uid",
+						"value": "{{uid}}"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "gender",
+							"type": "text",
+							"value": "male"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://52.74.66.238:3000/api/v1/clients/profile/gender",
+					"protocol": "http",
+					"host": [
+						"52",
+						"74",
+						"66",
+						"238"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"clients",
+						"profile",
+						"gender"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create chat request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1c5806cb-0474-488c-a9ea-f02e60356c2a",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"pm.environment.set(\"client_access_token\",postman.getResponseHeader(\"access-token\"));",
+							"pm.environment.set(\"client\",postman.getResponseHeader(\"client\"));",
+							"pm.environment.set(\"uid\",postman.getResponseHeader(\"uid\"));",
+							"tests[\"Uid is set\"] = postman.getResponseHeader(\"uid\") == pm.environment.get(\"uid\")",
+							"",
+							"console.log(pm.response.json());",
+							"",
+							"pm.sendRequest(\"https://postman-echo.com/get\", function (err, response) {",
+							"    console.log(response.json());",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Access-Token",
+						"value": "{{client_access_token}}"
+					},
+					{
+						"key": "Client",
+						"value": "{{client}}"
+					},
+					{
+						"key": "Token-Type",
+						"value": "Bearer"
+					},
+					{
+						"key": "Uid",
+						"value": "{{uid}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "goal_id",
+							"type": "text",
+							"value": "1"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://52.74.66.238:3000/api/v1/chat_requests/",
+					"protocol": "http",
+					"host": [
+						"52",
+						"74",
+						"66",
+						"238"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"chat_requests",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Store client weight",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "399e1bf8-0454-4abd-abf8-2528d551de68",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"pm.environment.set(\"client_access_token\",postman.getResponseHeader(\"access-token\"));",
+							"pm.environment.set(\"client\",postman.getResponseHeader(\"client\"));",
+							"pm.environment.set(\"uid\",postman.getResponseHeader(\"uid\"));",
+							"tests[\"Uid is set\"] = postman.getResponseHeader(\"uid\") == pm.environment.get(\"uid\")",
+							"",
+							"console.log(pm.response.json());",
+							"",
+							"pm.sendRequest(\"https://postman-echo.com/get\", function (err, response) {",
+							"    console.log(response.json());",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Access-Token",
+						"value": "{{client_access_token}}"
+					},
+					{
+						"key": "Client",
+						"value": "{{client}}"
+					},
+					{
+						"key": "Token-Type",
+						"value": "Bearer"
+					},
+					{
+						"key": "Uid",
+						"value": "{{uid}}"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "weight",
+							"type": "text",
+							"value": "70"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://52.74.66.238:3000/api/v1/clients/profile/weight",
+					"protocol": "http",
+					"host": [
+						"52",
+						"74",
+						"66",
+						"238"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"clients",
+						"profile",
+						"weight"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update client details",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "846fb3f8-e6f1-447b-8691-56f183427117",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"pm.environment.set(\"client_access_token\",postman.getResponseHeader(\"access-token\"));",
+							"pm.environment.set(\"client\",postman.getResponseHeader(\"client\"));",
+							"pm.environment.set(\"uid\",postman.getResponseHeader(\"uid\"));",
+							"tests[\"Uid is set\"] = postman.getResponseHeader(\"uid\") == pm.environment.get(\"uid\")",
+							"",
+							"console.log(pm.response.json());",
+							"",
+							"pm.sendRequest(\"https://postman-echo.com/get\", function (err, response) {",
+							"    console.log(response.json());",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Access-Token",
+						"value": "{{client_access_token}}"
+					},
+					{
+						"key": "Client",
+						"value": "{{client}}"
+					},
+					{
+						"key": "Token-Type",
+						"value": "Bearer"
+					},
+					{
+						"key": "Uid",
+						"value": "{{uid}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "height",
+							"type": "text",
+							"value": "152"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://52.74.66.238:3000/api/v1/clients/profile/all_details",
+					"protocol": "http",
+					"host": [
+						"52",
+						"74",
+						"66",
+						"238"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"clients",
+						"profile",
+						"all_details"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Store custom field value as client",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "541d9f25-26fd-4b3e-8edd-d5bbc52c0dfd",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"pm.environment.set(\"client_access_token\",postman.getResponseHeader(\"access-token\"));",
+							"pm.environment.set(\"client\",postman.getResponseHeader(\"client\"));",
+							"pm.environment.set(\"uid\",postman.getResponseHeader(\"uid\"));",
+							"tests[\"Uid is set\"] = postman.getResponseHeader(\"uid\") == pm.environment.get(\"uid\")",
+							"",
+							"console.log(pm.response.json());",
+							"",
+							"pm.sendRequest(\"https://postman-echo.com/get\", function (err, response) {",
+							"    console.log(response.json());",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Access-Token",
+						"value": "{{client_access_token}}"
+					},
+					{
+						"key": "Client",
+						"value": "{{client}}"
+					},
+					{
+						"key": "Token-Type",
+						"value": "Bearer"
+					},
+					{
+						"key": "Uid",
+						"value": "{{uid}}"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "custom_field_value[value]",
+							"type": "text",
+							"value": "veg"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://52.74.66.238:3000/api/v1/custom_fields/3/custom_field_values",
+					"protocol": "http",
+					"host": [
+						"52",
+						"74",
+						"66",
+						"238"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"custom_fields",
+						"3",
+						"custom_field_values"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Grow Bot",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0d68bebb-96f0-4360-89c0-87f9c7e080f4",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"pm.environment.set(\"client_access_token\",postman.getResponseHeader(\"access-token\"));",
+							"pm.environment.set(\"client\",postman.getResponseHeader(\"client\"));",
+							"pm.environment.set(\"uid\",postman.getResponseHeader(\"uid\"));",
+							"tests[\"Uid is set\"] = postman.getResponseHeader(\"uid\") == pm.environment.get(\"uid\")",
+							"",
+							"console.log(pm.response.json());",
+							"",
+							"pm.sendRequest(\"https://postman-echo.com/get\", function (err, response) {",
+							"    console.log(response.json());",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Access-Token",
+						"value": "{{client_access_token}}"
+					},
+					{
+						"key": "Client",
+						"value": "{{client}}"
+					},
+					{
+						"key": "Token-Type",
+						"value": "Bearer"
+					},
+					{
+						"key": "Uid",
+						"value": "{{uid}}"
+					},
+					{
+						"key": "Token-Type",
+						"value": "Bearer"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"conv_id\": \"t1-v1\"\n}"
+				},
+				"url": {
+					"raw": "http://52.74.66.238:3000/api/v7/grow_bot",
+					"protocol": "http",
+					"host": [
+						"52",
+						"74",
+						"66",
+						"238"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v7",
+						"grow_bot"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Onboarding JSON",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d3341ff6-f1fb-41aa-b22a-d762867d295e",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"pm.environment.set(\"client_access_token\",postman.getResponseHeader(\"access-token\"));",
+							"pm.environment.set(\"client\",postman.getResponseHeader(\"client\"));",
+							"pm.environment.set(\"uid\",postman.getResponseHeader(\"uid\"));",
+							"tests[\"Uid is set\"] = postman.getResponseHeader(\"uid\") == pm.environment.get(\"uid\")",
+							"",
+							"console.log(pm.response.json());",
+							"",
+							"pm.sendRequest(\"https://postman-echo.com/get\", function (err, response) {",
+							"    console.log(response.json());",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Access-Token",
+						"value": "{{client_access_token}}"
+					},
+					{
+						"key": "Client",
+						"value": "{{client}}"
+					},
+					{
+						"key": "Token-Type",
+						"value": "Bearer"
+					},
+					{
+						"key": "Uid",
+						"value": "{{uid}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"goals_list\": [\"test1\", \"test2\"]\n}"
+				},
+				"url": {
+					"raw": "http://52.74.66.238:3000/api/v7/onboarding",
+					"protocol": "http",
+					"host": [
+						"52",
+						"74",
+						"66",
+						"238"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v7",
+						"onboarding"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Store client height",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6ecf8e1c-83f4-46b6-864e-64f8909cd65e",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"pm.environment.set(\"client_access_token\",postman.getResponseHeader(\"access-token\"));",
+							"pm.environment.set(\"client\",postman.getResponseHeader(\"client\"));",
+							"pm.environment.set(\"uid\",postman.getResponseHeader(\"uid\"));",
+							"tests[\"Uid is set\"] = postman.getResponseHeader(\"uid\") == pm.environment.get(\"uid\")",
+							"",
+							"console.log(pm.response.json());",
+							"",
+							"pm.sendRequest(\"https://postman-echo.com/get\", function (err, response) {",
+							"    console.log(response.json());",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Access-Token",
+						"value": "{{client_access_token}}"
+					},
+					{
+						"key": "Client",
+						"value": "{{client}}"
+					},
+					{
+						"key": "Token-Type",
+						"value": "Bearer"
+					},
+					{
+						"key": "Uid",
+						"value": "{{uid}}"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "height",
+							"type": "text",
+							"value": "129"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://52.74.66.238:3000/api/v1/clients/profile/height",
+					"protocol": "http",
+					"host": [
+						"52",
+						"74",
+						"66",
+						"238"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"clients",
+						"profile",
+						"height"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sign_in Api",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "cccc59c4-d5a9-49c6-b2a1-2cd1edc1008b",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"pm.environment.set(\"client_access_token\",postman.getResponseHeader(\"access-token\"));",
+							"pm.environment.set(\"client\",postman.getResponseHeader(\"client\"));",
+							"pm.environment.set(\"uid\",postman.getResponseHeader(\"uid\"));",
+							"pm.environment.set(\"client_id\",jsonData['data']['id']);",
+							"tests[\"Uid is set\"] = postman.getResponseHeader(\"uid\") == pm.environment.get(\"uid\")",
+							"",
+							"console.log(pm.response.json());",
+							"",
+							"pm.sendRequest(\"https://postman-echo.com/get\", function (err, response) {",
+							"    console.log(response.json());",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"var schema = {",
+							"  \"items\": {",
+							"    \"type\": \"boolean\"",
+							"  }",
+							"};",
+							"",
+							"var data1 = {\"status\": \"success\"};",
+							"var data2 = {\"data\": {",
+							"        \"id\": 263613,",
+							"        \"name\": \"saaz\",",
+							"        \"email\": \"saaz1@gmail.com\",",
+							"        \"mobile_number\": \"7978545322\",",
+							"        \"banned\": false,",
+							"        \"gender\": \"male\"",
+							"    }};",
+							"",
+							"pm.test('Response contains Required Data', function() {",
+							"  pm.expect(tv4.validate(data1, schema)).to.be.true;",
+							"  pm.expect(tv4.validate(data2, schema)).to.be.true;",
+							"});",
+							"",
+							"pm.test(\"Successful POST request\", function () {",
+							"    pm.expect(pm.response.code).not.to.be.oneOf([401,202,500]);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "mobile_number",
+							"value": "7978545322",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://52.74.66.238:3000/api/v7/clients/auth/sign_in",
+					"protocol": "http",
+					"host": [
+						"52",
+						"74",
+						"66",
+						"238"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v7",
+						"clients",
+						"auth",
+						"sign_in"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get client details",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a313d254-e379-4f0b-ae6d-55a57195861d",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"pm.environment.set(\"client_access_token\",postman.getResponseHeader(\"access-token\"));",
+							"pm.environment.set(\"client\",postman.getResponseHeader(\"client\"));",
+							"pm.environment.set(\"uid\",postman.getResponseHeader(\"uid\"));",
+							"tests[\"Uid is set\"] = postman.getResponseHeader(\"uid\") == pm.environment.get(\"uid\")",
+							"",
+							"console.log(pm.response.json());",
+							"",
+							"pm.sendRequest(\"https://postman-echo.com/get\", function (err, response) {",
+							"    console.log(response.json());",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Access-Token",
+						"value": "{{client_access_token}}"
+					},
+					{
+						"key": "Client",
+						"value": "{{client}}"
+					},
+					{
+						"key": "Token-Type",
+						"value": "Bearer"
+					},
+					{
+						"key": "Uid",
+						"value": "{{uid}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "http://52.74.66.238:3000/api/v1/clients/profile",
+					"protocol": "http",
+					"host": [
+						"52",
+						"74",
+						"66",
+						"238"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"clients",
+						"profile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Active notification message",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "42b8f239-d671-4df7-a8a0-2a0c0d8edae4",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"pm.environment.set(\"client_access_token\",postman.getResponseHeader(\"access-token\"));",
+							"pm.environment.set(\"client\",postman.getResponseHeader(\"client\"));",
+							"pm.environment.set(\"uid\",postman.getResponseHeader(\"uid\"));",
+							"tests[\"Uid is set\"] = postman.getResponseHeader(\"uid\") == pm.environment.get(\"uid\")",
+							"",
+							"console.log(pm.response.json());",
+							"",
+							"pm.sendRequest(\"https://postman-echo.com/get\", function (err, response) {",
+							"    console.log(response.json());",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Access-Token",
+						"value": "{{client_access_token}}"
+					},
+					{
+						"key": "Client",
+						"value": "{{client}}"
+					},
+					{
+						"key": "Token-Type",
+						"value": "Bearer"
+					},
+					{
+						"key": "Uid",
+						"value": "{{uid}}"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "notification_message[message]",
+							"type": "text",
+							"value": "Today is holiday"
+						},
+						{
+							"key": "notification_message[start_at]",
+							"type": "text",
+							"value": "2015-12-29"
+						},
+						{
+							"key": "notification_message[end_at]",
+							"type": "text",
+							"value": "2015-12-30"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://52.74.66.238:3000/api/v1/notification_messages/active",
+					"protocol": "http",
+					"host": [
+						"52",
+						"74",
+						"66",
+						"238"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"notification_messages",
+						"active"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get meal plan",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ea1fce6c-fb5a-4757-b74f-31e41159c6ac",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"pm.environment.set(\"client_access_token\",postman.getResponseHeader(\"access-token\"));",
+							"pm.environment.set(\"client\",postman.getResponseHeader(\"client\"));",
+							"pm.environment.set(\"uid\",postman.getResponseHeader(\"uid\"));",
+							"tests[\"Uid is set\"] = postman.getResponseHeader(\"uid\") == pm.environment.get(\"uid\")",
+							"",
+							"console.log(pm.response.json());",
+							"",
+							"pm.sendRequest(\"https://postman-echo.com/get\", function (err, response) {",
+							"    console.log(response.json());",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Access-Token",
+						"value": "{{client_access_token}}"
+					},
+					{
+						"key": "Client",
+						"value": "{{client}}"
+					},
+					{
+						"key": "Token-Type",
+						"value": "Bearer"
+					},
+					{
+						"key": "Uid",
+						"value": "{{uid}}"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "http://52.74.66.238:3000/api/v7/meal_plans",
+					"protocol": "http",
+					"host": [
+						"52",
+						"74",
+						"66",
+						"238"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v7",
+						"meal_plans"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Validate client authentication ",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0297393c-d81c-4c38-9d92-d3a41b42a69e",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"pm.environment.set(\"client_access_token\",postman.getResponseHeader(\"access-token\"));",
+							"pm.environment.set(\"client\",postman.getResponseHeader(\"client\"));",
+							"pm.environment.set(\"uid\",postman.getResponseHeader(\"uid\"));",
+							"tests[\"Uid is set\"] = postman.getResponseHeader(\"uid\") == pm.environment.get(\"uid\")",
+							"",
+							"console.log(pm.response.json());",
+							"",
+							"pm.sendRequest(\"https://postman-echo.com/get\", function (err, response) {",
+							"    console.log(response.json());",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Access-Token",
+						"value": "{{client_access_token}}"
+					},
+					{
+						"key": "Client",
+						"value": "{{client}}"
+					},
+					{
+						"key": "Token-Type",
+						"value": "Bearer"
+					},
+					{
+						"key": "Uid",
+						"value": "{{uid}}"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "mobile_number",
+							"type": "text",
+							"value": "8762183984"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://52.74.66.238:3000/api/v1/clients/auth/validate_token",
+					"protocol": "http",
+					"host": [
+						"52",
+						"74",
+						"66",
+						"238"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"clients",
+						"auth",
+						"validate_token"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
